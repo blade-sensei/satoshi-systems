@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 router.get('/data-view', (req, res) => {
-  res.send('data view');
+  res.json({page:'data-view'});
 });
 
 module.exports = router;
