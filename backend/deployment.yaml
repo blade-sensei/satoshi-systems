@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-satoshi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-satoshi
+  template:
+    metadata:
+      labels:
+        app: backend-satoshi
+    spec:
+      containers:
+      - name: backend-satoshi
+        image: satoshisystems.azurecr.io/demo/backend-satoshi:latest
+        ports:
+        - containerPort: 3100
+        env:
+          - PORT: 3100
+          - DB_URI: mongodb+srv://satoshi:SatoshiDemo1@cluster0-o1spj.mongodb.net/Satoshi?retryWrites=true&w=majority
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-satoshi-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 3100
+  selector:
+    app: backend-satoshi
+  type: LoadBalancer

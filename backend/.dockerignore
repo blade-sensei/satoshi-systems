@@ -1,0 +1,10 @@
+Dockerfile
+
+# Ignore .git folder
+.gitignore
+npm-debug.log
+.dockerignore
+**/.git
+**/.DS_Store
+**/node_modules
+

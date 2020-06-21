@@ -2,6 +2,7 @@ const express = require('express');
 const api = require('./routes/api');
 const config = require('./config');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const app = express();
 
 
@@ -35,3 +36,15 @@ app.listen(port, () => {
 });
 
 //Todo config database
+// config database
+
+const mongoURI = process.env.DB_URI || config.db.uri;
+mongoose
+  .connect(mongoURI)
+  .then(() => {
+    return console.info(`database connection on ${mongoose.connection.port} port with success!`);
+  })
+  .catch((error) => {
+    console.info('fail to connect to database');
+  });
+

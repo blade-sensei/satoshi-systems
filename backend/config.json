@@ -3,5 +3,8 @@
   "server" : {
     "host" : "127.0.0.1",
     "port" : 3100
+  },
+  "db": {
+    "uri": "mongodb+srv://satoshi:SatoshiDemo1@cluster0-o1spj.mongodb.net/Satoshi?retryWrites=true&w=majority"
   }
 }
