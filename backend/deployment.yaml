@@ -18,8 +18,10 @@ spec:
         ports:
         - containerPort: 3100
         env:
-          - PORT: 3100
-          - DB_URI: mongodb+srv://satoshi:SatoshiDemo1@cluster0-o1spj.mongodb.net/Satoshi?retryWrites=true&w=majority
+          - name: "PORT"
+            value: "3100"
+          - name: "DB_URI"
+            value: "mongodb+srv://satoshi:SatoshiDemo1@cluster0-o1spj.mongodb.net/Satoshi?retryWrites=true&w=majority"
 ---
 apiVersion: v1
 kind: Service
