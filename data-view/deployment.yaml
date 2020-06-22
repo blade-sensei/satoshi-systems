@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-register
+  name: data-view
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-register
+      app: data-view
   template:
     metadata:
       labels:
-        app: front-register
+        app: data-view
     spec:
       containers:
-      - name: front-register
+      - name: data-view
         stdin: true
         tty: true
-        image: satoshisystems.azurecr.io/demo/front-register:latest
+        image: satoshisystems.azurecr.io/demo/data-view:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: front-register-service
+  name: data-view-service
 spec:
   ports:
   - port: 80
     targetPort: 3000
   selector:
-    app: front-register
+    app: data-view
   type: LoadBalancer

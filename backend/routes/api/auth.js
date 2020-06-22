@@ -4,8 +4,12 @@ const accountModel = require('../../models/account.model');
 
 const router = express.Router();
 router.post('/login', async (req, res) => {
-  
-  return res.json({login: true});
+  const user = await accountModel.findOneBy({
+    username: req.body.username,
+    password: req.body.password
+  });
+  if (!user) return res.json({loginSucess: false});
+  return res.json({loginSucess: true, user});
 });
 
 router.post('/register', async (req, res) => {

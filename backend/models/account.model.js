@@ -12,7 +12,12 @@ const add = (account) => {
   return new Account(account).save();
 };
 
+const findOneBy = (condition) => {
+  return Account.findOne(condition);
+};
+
 module.exports = {
   Account,
-  add
+  add,
+  findOneBy
 };

@@ -1,12 +1,20 @@
 import React from 'react';
 import './DataView.css'
+import { withRouter } from "react-router-dom";
 
-const DataViewer = () => {
+
+const DataViewer = (props) => {
+  const user = props.location.state
   return (
     <div className="container">
-      dataview page
+      <div>
+        score: { user.score }
+      </div>
+      <div>
+        age { user.age }
+      </div>
     </div>
   )
 }
 
-export default DataViewer;
+export default withRouter(DataViewer);

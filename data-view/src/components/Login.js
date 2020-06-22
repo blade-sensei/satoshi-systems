@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const Login = () => {
+
+const Login = (props) => {
 
   const [username, setUsername] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [redirection, setRedirection] = useState(false);
 
   const login = async () => {
     console.log('send post');
@@ -11,22 +13,25 @@ const Login = () => {
       name: username,
       password: userPassword,
     }
-    let apiResponse = await fetch('http://52.146.54.126/api/auth/login', {
+    let apiResponse = await fetch('http://localhost:3000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     });
     console.log(apiResponse);
-    apiResponse = await apiResponse.json();
-    console.log(apiResponse);
+    //apiResponse = await apiResponse.json();
+    apiResponse.loginSucess = true;
+    
+    const user = apiResponse.user;
+    if (apiResponse.loginSucess) {
+        return props.history.push("/data-view", user);
+    }
     //todo redirection to data-view
   };
 
   return (
     <div>
-      
       <span className="form-title"> Log in </span>
-
      <div>
       <div className="form-set">
         <label for="username">username</label>
