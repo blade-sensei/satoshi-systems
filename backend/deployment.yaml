@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: backend-satoshi
-        image: satoshisystems.azurecr.io/demo/backend-satoshi:latest
+        image: satoshisystems.azurecr.io/demo/backend-satoshi
+        imagePullPolicy: Always
         ports:
         - containerPort: 3100
         env:

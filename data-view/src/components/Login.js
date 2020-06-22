@@ -13,7 +13,7 @@ const Login = (props) => {
       name: username,
       password: userPassword,
     }
-    let apiResponse = await fetch('http://localhost:3100/api/auth/login', {
+    let apiResponse = await fetch('http://52.146.54.126/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
