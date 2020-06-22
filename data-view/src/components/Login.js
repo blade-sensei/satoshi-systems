@@ -5,7 +5,7 @@ const Login = (props) => {
 
   const [username, setUsername] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [redirection, setRedirection] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   const login = async () => {
     console.log('send post');
@@ -13,24 +13,27 @@ const Login = (props) => {
       name: username,
       password: userPassword,
     }
-    let apiResponse = await fetch('http://localhost:3000/api/auth/login', {
+    let apiResponse = await fetch('http://localhost:3100/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     });
     console.log(apiResponse);
-    //apiResponse = await apiResponse.json();
-    apiResponse.loginSucess = true;
-    
+    apiResponse = await apiResponse.json();
+  
+    console.log(apiResponse);
     const user = apiResponse.user;
     if (apiResponse.loginSucess) {
         return props.history.push("/data-view", user);
+    } else {
+      setLoginError(true);
     }
     //todo redirection to data-view
   };
 
   return (
     <div>
+      { loginError && <span> login fail </span> }
       <span className="form-title"> Log in </span>
      <div>
       <div className="form-set">

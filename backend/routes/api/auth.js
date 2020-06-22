@@ -5,9 +5,11 @@ const accountModel = require('../../models/account.model');
 const router = express.Router();
 router.post('/login', async (req, res) => {
   const user = await accountModel.findOneBy({
-    username: req.body.username,
+    name: req.body.name,
     password: req.body.password
   });
+  console.log(req.body);
+  console.log(user);
   if (!user) return res.json({loginSucess: false});
   return res.json({loginSucess: true, user});
 });
