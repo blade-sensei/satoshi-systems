@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: data-view
-        image: satoshisystems.azurecr.io/demo/data-view
+        image: satoshisystems.azurecr.io/demo/data-view:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
