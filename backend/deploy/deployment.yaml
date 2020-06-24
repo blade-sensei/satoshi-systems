@@ -30,8 +30,15 @@ metadata:
   name: backend-satoshi-service
 spec:
   ports:
-  - port: 80
-    targetPort: 3100
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3100
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 3100
   selector:
     app: backend-satoshi
-  type: LoadBalancer
+  externalIPs:
+    - 52.152.253.141
