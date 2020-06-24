@@ -4,7 +4,7 @@ metadata:
   name: basic-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/cluster-issuer: letsencrypt-production-backend
 spec:
   tls:
     - hosts:

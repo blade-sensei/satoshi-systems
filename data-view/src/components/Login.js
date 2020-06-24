@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import NavBar from '../components/NavBar';
 import DataView from '../components/DataView';
+import { Link } from 'react-router-dom';
+
 import './Login.css';
 
 const Login = (props) => {
@@ -16,16 +18,18 @@ const Login = (props) => {
       name: username,
       password: userPassword,
     }
-    let apiResponse = await fetch('http://52.146.54.126/api/auth/login', {
+    let apiResponse = await fetch('https://backend.eastus.cloudapp.azure.com/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     });
+    console.log(apiResponse);
     apiResponse = await apiResponse.json();
+    console.log(apiResponse);
     const user = apiResponse.user;
     setUser(user);
     if (apiResponse.loginSucess) {
-      setLoginSucess(true);
+      return props.history.push("/user", user);
     } else {
       setLoginError(true);
     }
@@ -48,7 +52,7 @@ const Login = (props) => {
       value={userPassword} onChange=  { e =>  setUserPassword(e.target.value) }/>
     </div>
     <div className="form-set">
-      <a type="button" className="btn-sign-in" onClick={login}>Login </a>
+      <button type="button" className="btn-sign-in" onClick={login}>Login </button>
     </div>
   </div>
   </div>
@@ -63,8 +67,6 @@ const Login = (props) => {
     <div>
       <NavBar/>
       { !loginSucess && form() } 
-      { loginSucess && dataview() } 
-      
     </div>
     
   )

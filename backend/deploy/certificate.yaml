@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: tls-secret-prd-backend
-  namespace: ingress-basic
+  namespace: ingress-backend
 spec:
   secretName: tls-secret-prd-backend
   dnsNames:
@@ -14,5 +14,5 @@ spec:
         domains:
           - backend.eastus.cloudapp.azure.com
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-production-backend
     kind: ClusterIssuer

@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production-backend
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: jcoyla123@@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-production-backend
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
