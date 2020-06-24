@@ -5,7 +5,6 @@ import Register from './Register';
 const Home = () => {
   return (
     <div className="container">
-      HomePage
       <Register/>
     </div>
   )

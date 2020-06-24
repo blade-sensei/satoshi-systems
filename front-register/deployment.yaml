@@ -16,7 +16,7 @@ spec:
       - name: front-register
         stdin: true
         tty: true
-        image: satoshisystems.azurecr.io/demo/front-register:latest
+        image: satoshisystems.azurecr.io/demo/front-register
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

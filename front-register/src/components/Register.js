@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import './Register.css';
 
 const Register = () => {
 
@@ -8,7 +9,6 @@ const Register = () => {
   const [userPassword, setUserPassword] = useState('');
 
   const registerPost = async () => {
-    console.log('send post');
     const userInformation = {
       name: username,
       age: userAge,
@@ -25,7 +25,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="component">
       
       <span className="form-title"> Register </span>
 
@@ -37,12 +37,12 @@ const Register = () => {
       </div>
       <div className="form-set">
         <label for="age">age</label>
-        <input type="age" id="age" className="form-field"
+        <input type="number" id="age" className="form-field"
         value={userAge} onChange=  { e =>  setUserAge(e.target.value) }/>
       </div>
       <div className="form-set">
         <label for="score">score</label>
-        <input type="score" id="score" className="form-field"
+        <input type="number" id="score" className="form-field"
         value={userScore} onChange=  { e =>  setUserScore(e.target.value) }/>
       </div>
       <div className="form-set">
@@ -51,7 +51,7 @@ const Register = () => {
          value={userPassword} onChange=  { e =>  setUserPassword(e.target.value) }/>
       </div>
       <div className="form-set">
-        <a href="https://52.188.95.234/" className="btn-sign-in" onClick={registerPost}>
+        <a href="https://dataview.eastus.cloudapp.azure.com/" className="btn-sign-in" onClick={registerPost}>
           Sign up
         </a>
       </div>

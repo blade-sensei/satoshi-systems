@@ -12,7 +12,6 @@ const Login = (props) => {
   const [user, setUser] = useState({});
 
   const login = async () => {
-    console.log('send post');
     const credentials = {
       name: username,
       password: userPassword,
@@ -22,10 +21,7 @@ const Login = (props) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     });
-    console.log(apiResponse);
     apiResponse = await apiResponse.json();
-  
-    console.log(apiResponse);
     const user = apiResponse.user;
     setUser(user);
     if (apiResponse.loginSucess) {
@@ -52,9 +48,7 @@ const Login = (props) => {
       value={userPassword} onChange=  { e =>  setUserPassword(e.target.value) }/>
     </div>
     <div className="form-set">
-      <button type="button" className="btn-sign-in" onClick={login}>
-        Login
-      </button>
+      <a type="button" className="btn-sign-in" onClick={login}>Login </a>
     </div>
   </div>
   </div>

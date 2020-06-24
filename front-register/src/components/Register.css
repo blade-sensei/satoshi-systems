@@ -1,0 +1,39 @@
+
+.form-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.login-container {
+  text-align: center;
+}
+
+.form-set label {
+  display: block;
+  margin-bottom: 2%;
+  font-size: 1.2em;
+
+}
+
+.form-error {
+  display: block;
+  height: 30px;
+  color: #f63333;
+  margin-bottom: 10px;
+}
+
+.form-field {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  height: 40px;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 0 0 0 10px;
+  border-radius: 3px;
+}
+
+.component {
+  padding: 5% 30%;
+}
