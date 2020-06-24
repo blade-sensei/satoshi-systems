@@ -1,0 +1,18 @@
+.navbar {
+  background-color: #eeeeee;
+}
+
+.navbar h3 {
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 10px;
+  color: rgb(1, 78, 65);
+  text-decoration: none;
+}

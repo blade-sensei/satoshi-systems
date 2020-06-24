@@ -3,10 +3,10 @@ import './DataView.css'
 import { withRouter } from "react-router-dom";
 
 
-const DataViewer = (props) => {
-  const user = props.location.state
+const DataViewer = ({user}) => {
   return (
     <div className="container">
+
       <div>
         score: { user.score }
       </div>
