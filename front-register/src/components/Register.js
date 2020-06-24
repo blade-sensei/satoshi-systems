@@ -15,12 +15,13 @@ const Register = () => {
       score: userScore,
       password: userPassword,
     }
-    let apiResponse = await fetch('http://52.146.54.126/api/auth/register', {
+    let apiResponse = await fetch('https://backend.eastus.cloudapp.azure.com/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userInformation),
     });
     apiResponse = await apiResponse.json();
+    console.log(apiResponse)
     
   };
 
